@@ -37,7 +37,9 @@ renderer.render(scene, camera)
 
 //Controls
 const controls = new OrbitControls(camera, canvas)
-
+controls.enableDamping = true
+controls.enablePan = false
+controls.enableZoom = false
 
 //Resize
 window.addEventListener('resize', () => {
@@ -51,6 +53,7 @@ window.addEventListener('resize', () => {
 })
 
 const loop = () => {
+  controls.update()
   renderer.render(scene, camera)  
   window.requestAnimationFrame(loop)
 }
